@@ -1,0 +1,1169 @@
+[root@Zeratul:face_0515]# ./emo_camera_release
+drivers version:0.0.1.0.RELEASE(b4edd3b)240304-22.30.37(7.2.0-r5.1.5-libc2.29-1-lib@STANDARD-sys@STANDARD-aie@NNA1)
+The soc-nna version is 20220525
+[I/magik::venus]: venus.cc:71 ***********************
+[I/magik::venus]: venus.cc:72 venus memory map size: 0
+[I/magik::venus]: venus.cc:73 ***********************
+[I/magik::venus]: venus.cc:106 ***********************
+[I/magik::venus]: venus.cc:107 venus init sucess.
+[I/magik::venus]: venus.cc:108 ***********************
+INFO(magik): venus version:1.2.1.0.ALPHA(04010210_00000000_8df640f) built:240308-00.14.06(7.2.0-r5.1.5-libc2.29-mips-lib@STANDARD-sys@STANDARD-aie@NNA1)
+INFO(magik): model version:1.2.1.NNA1_ef8f4d3 
+INFO(magik): model version:1.2.1.NNA1_ef8f4d3 
+[frame_pooling_thread--469 Channel:1 ]:1831(ms)
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 167.74 8.69807 475.652 312.374 Score: 0.912481
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 167 8 308 304
+Detected emotion: sadness with confidence: 0.78099
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 326.592 97.1577 451.137 341.803 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 326 97 125 244
+Detected emotion: neutral with confidence: 0.638232
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 327.959 117.388 442.986 339.38 Score: 0.943384
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 327 117 115 222
+Detected emotion: neutral with confidence: 0.620148
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 321.951 93.8074 446.496 354.057 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 321 93 125 261
+Detected emotion: neutral with confidence: 0.50125
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 322.499 107.97 445.948 352.615 Score: 0.946434
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 322 107 123 245
+Detected emotion: neutral with confidence: 0.522241
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 318.864 106.425 447.888 355.431 Score: 0.980673
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 318 106 129 249
+Detected emotion: neutral with confidence: 0.500893
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 321.975 109.681 449.864 352.175 Score: 0.993184
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 321 109 128 243
+Detected emotion: neutral with confidence: 0.483174
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 318.007 112.861 443.657 355.355 Score: 0.969465
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 318 112 125 243
+Detected emotion: neutral with confidence: 0.622066
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 318.007 108.333 443.657 357.339 Score: 0.97275
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 318 108 125 249
+Detected emotion: neutral with confidence: 0.48265
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 311.357 96.9874 448.611 357.237 Score: 0.97275
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 311 96 137 261
+Detected emotion: sadness with confidence: 0.633811
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 310.509 98.2594 447.763 358.509 Score: 0.977043
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 310 98 137 260
+Detected emotion: sadness with confidence: 0.666548
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 312.304 96.4688 445.968 359.028 Score: 0.985511
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 312 96 133 263
+Detected emotion: sadness with confidence: 0.649128
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 314.624 110.877 443.648 359.883 Score: 0.961707
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 314 110 129 249
+Detected emotion: sadness with confidence: 0.530068
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 314.057 117.744 440.822 358.105 Score: 0.880025
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 314 117 126 241
+Detected emotion: neutral with confidence: 0.576556
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 318.492 108.969 439.78 357.975 Score: 0.773952
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 318 108 121 249
+Detected emotion: neutral with confidence: 0.832229
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 320.255 103.57 444.8 357.014 Score: 0.880025
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 320 103 124 254
+Detected emotion: sadness with confidence: 0.497803
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 323.135 104.319 457.985 328.281 Score: 0.71864
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 323 104 134 224
+Detected emotion: sadness with confidence: 0.770433
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 317.896 108.414 453.943 334.363 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 317 108 136 226
+Detected emotion: sadness with confidence: 0.809084
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 313.346 72.2539 456.798 327.946 Score: 0.784041
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 313 72 143 255
+Detected emotion: neutral with confidence: 0.603841
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 313.292 84.5772 451.764 327.071 Score: 0.784041
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 313 84 138 243
+Detected emotion: sadness with confidence: 0.50436
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 320.835 94.6519 451.004 324.628 Score: 0.812326
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 320 94 131 230
+Detected emotion: sadness with confidence: 0.50921
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 321.127 106.276 449.016 328.268 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 321 106 128 222
+Detected emotion: sadness with confidence: 0.8355
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 330.95 161.16 445.977 343.945 Score: 0.886076
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 330 161 115 182
+Detected emotion: sadness with confidence: 0.545116
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 333.494 155.329 448.521 344.688 Score: 0.969465
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 333 155 115 189
+Detected emotion: sadness with confidence: 0.494695
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 332.705 159.713 446.72 344.12 Score: 0.936788
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 332 159 114 185
+Detected emotion: sadness with confidence: 0.546063
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 331.174 158.705 448.251 346.399 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 331 158 117 188
+Detected emotion: neutral with confidence: 0.486401
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 333.895 163.529 448.922 347.936 Score: 0.829546
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 333 163 115 184
+Detected emotion: sadness with confidence: 0.672707
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 326.524 145.965 447.812 343.875 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 326 145 121 198
+Detected emotion: neutral with confidence: 0.617359
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 331.688 160.691 447.736 341.869 Score: 0.929481
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 331 160 116 181
+Detected emotion: neutral with confidence: 0.693024
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 328.22 156.161 449.508 343.855 Score: 0.880025
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 328 156 121 187
+Detected emotion: neutral with confidence: 0.732278
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 327.372 148.509 448.66 346.419 Score: 0.880025
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 327 148 121 198
+Detected emotion: neutral with confidence: 0.706824
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 333.122 150.242 452.286 344.686 Score: 0.912481
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 333 150 119 194
+Detected emotion: neutral with confidence: 0.604713
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 331.426 142.406 450.59 347.434 Score: 0.880025
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 331 142 119 205
+Detected emotion: neutral with confidence: 0.4833
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 333.317 144.58 450.394 347.804 Score: 0.91705
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 333 144 117 203
+Detected emotion: neutral with confidence: 0.474974
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 330.364 141.134 451.652 346.162 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 330 141 121 205
+Detected emotion: sadness with confidence: 0.44563
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 325.343 127.564 449.888 349.556 Score: 0.730337
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 325 127 124 222
+Detected emotion: sadness with confidence: 0.688768
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 324.495 118.1 449.04 350.117 Score: 0.803227
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 324 118 125 232
+Detected emotion: sadness with confidence: 0.720369
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 323.095 109.476 448.745 349.837 Score: 0.773952
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 323 109 125 240
+Detected emotion: sadness with confidence: 0.75346
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 221.579 13.8494 455.733 314.854 Score: 0.852988
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 221 13 234 301
+Detected emotion: neutral with confidence: 0.430559
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 323.647 130.108 448.192 352.1 Score: 0.730337
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 323 130 125 222
+Detected emotion: neutral with confidence: 0.477387
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 325.639 130.744 451.289 352.736 Score: 0.75279
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 325 130 126 222
+Detected emotion: neutral with confidence: 0.799885
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 328.353 133.288 448.574 355.28 Score: 0.71864
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 328 133 120 222
+Detected emotion: neutral with confidence: 0.693811
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 327.039 124.208 451.584 354.184 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 327 124 124 230
+Detected emotion: neutral with confidence: 0.514353
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 328.912 121.523 442.927 355.598 Score: 0.880025
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 328 121 114 234
+Detected emotion: sadness with confidence: 0.764871
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 325.014 121.28 440.041 353.297 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 325 121 115 232
+Detected emotion: sadness with confidence: 0.778829
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 327.987 144.741 451.437 355.275 Score: 0.784041
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 327 144 124 211
+Detected emotion: neutral with confidence: 0.72238
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 325.862 153.742 440.889 355.179 Score: 0.75279
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 325 153 115 202
+Detected emotion: neutral with confidence: 0.676444
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 326.885 174.012 432.187 348.9 Score: 0.71864
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 326 174 106 174
+Detected emotion: neutral with confidence: 0.68464
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 309.231 141.77 433.776 346.798 Score: 0.793799
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 309 141 124 205
+Detected emotion: neutral with confidence: 0.74289
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 280.548 90.8649 427.291 343.343 Score: 0.873698
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 280 90 147 253
+Detected emotion: neutral with confidence: 0.691087
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 288.034 117.424 419.358 335.529 Score: 0.97275
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 288 117 131 218
+Detected emotion: neutral with confidence: 0.626801
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 284.663 117.424 412.553 335.529 Score: 0.943384
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 284 117 128 218
+Detected emotion: neutral with confidence: 0.53191
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 284.06 114.495 416.548 338.457 Score: 0.983738
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 284 114 132 224
+Detected emotion: neutral with confidence: 0.562957
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 289.97 118.696 412.334 336.801 Score: 0.946434
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 289 118 123 218
+Detected emotion: sadness with confidence: 0.500592
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 274.738 59.7888 430.84 340.5 Score: 0.969465
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 274 59 156 281
+Detected emotion: neutral with confidence: 0.720719
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 291.356 121.84 412.644 343.832 Score: 0.943384
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 291 121 121 222
+Detected emotion: neutral with confidence: 0.483682
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 294.114 132.593 413.278 339.439 Score: 0.963807
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 294 132 119 207
+Detected emotion: neutral with confidence: 0.581092
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 276.104 49.2357 429.474 337.485 Score: 0.954679
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 276 49 153 288
+Detected emotion: neutral with confidence: 0.869799
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 271.511 47.0614 431.806 343.051 Score: 0.925541
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 271 47 160 296
+Detected emotion: neutral with confidence: 0.874718
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 274.293 60.6368 429.023 341.348 Score: 0.912481
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 274 60 155 281
+Detected emotion: neutral with confidence: 0.722051
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 216.461 27.9614 440.499 310.918 Score: 0.943384
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 216 27 224 283
+Detected emotion: neutral with confidence: 0.616564
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 334.864 110.005 400.005 182.067 Score: 0.773952
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 334 110 66 72
+Detected emotion: happiness with confidence: 0.475199
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 271.126 80.9244 423.146 344.804 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 271 80 152 264
+Detected emotion: neutral with confidence: 0.711448
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 331.604 94.2478 402.7 178.656 Score: 0.963807
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 331 94 71 84
+Detected emotion: happiness with confidence: 0.54631
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 280.548 109.338 427.291 338.438 Score: 0.852988
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 280 109 147 229
+Detected emotion: sadness with confidence: 0.525543
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 295.281 145.789 415.503 335.148 Score: 0.741723
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 295 145 120 190
+Detected emotion: neutral with confidence: 0.70023
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 329.246 94.4842 404.21 186.688 Score: 0.852988
+Box: 297.031 153.695 412.057 334.873 Score: 0.821098
+2 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 329 94 75 92
+Detected emotion: sadness with confidence: 0.595897
+face_2: 297 153 115 181
+Detected emotion: neutral with confidence: 0.709716
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 329.002 92.1902 405.302 187.71 Score: 0.867088
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 329 92 76 95
+Detected emotion: sadness with confidence: 0.717256
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 297.879 143.02 412.905 339.189 Score: 0.793799
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 297 143 115 196
+Detected emotion: neutral with confidence: 0.661994
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 294.962 156.4 414.126 335.984 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 294 156 120 179
+Detected emotion: neutral with confidence: 0.686244
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 291.57 143.246 410.734 337.69 Score: 0.867088
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 291 143 119 194
+Detected emotion: neutral with confidence: 0.625941
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 289.66 150.173 410.948 334.58 Score: 0.706639
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 289 150 121 184
+Detected emotion: neutral with confidence: 0.645088
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 326.626 91.6569 404.286 188.879 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 326 91 78 97
+Detected emotion: sadness with confidence: 0.753783
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 327.73 91.8616 404.03 189.946 Score: 0.867088
+Box: 292.942 161.292 411.058 336.18 Score: 0.803227
+2 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 327 91 77 98
+Detected emotion: sadness with confidence: 0.759095
+face_2: 292 161 119 175
+Detected emotion: neutral with confidence: 0.6419
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 328.398 93.1442 403.362 188.664 Score: 0.821098
+Box: 291.123 158.462 414.573 336.467 Score: 0.763535
+2 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 328 93 75 95
+Detected emotion: sadness with confidence: 0.787052
+face_2: 291 158 123 178
+Detected emotion: neutral with confidence: 0.656245
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 290.818 151.263 413.182 337.306 Score: 0.89186
+Box: 327.306 93.4622 403.606 188.982 Score: 0.763535
+2 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 290 151 123 186
+Detected emotion: neutral with confidence: 0.648236
+face_2: 327 93 76 95
+Detected emotion: sadness with confidence: 0.724457
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 289.427 151.709 412.877 339.403 Score: 0.821098
+Box: 327.73 94.2985 404.03 188.145 Score: 0.803227
+2 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 289 151 123 188
+Detected emotion: neutral with confidence: 0.629723
+face_2: 327 94 77 94
+Detected emotion: sadness with confidence: 0.724661
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 289.728 148.969 414.272 338.328 Score: 0.837674
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 289 148 125 190
+Detected emotion: neutral with confidence: 0.654467
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 328.913 94.9345 404.543 188.781 Score: 0.821098
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 328 94 76 94
+Detected emotion: sadness with confidence: 0.713975
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 329.478 94.4842 403.13 186.688 Score: 0.763535
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 329 94 74 92
+Detected emotion: sadness with confidence: 0.745803
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 272.713 78.2293 426.082 349.195 Score: 0.897384
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 272 78 154 271
+Detected emotion: neutral with confidence: 0.462812
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 291.447 132.23 419.337 337.258 Score: 0.998819
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 291 132 128 205
+Detected emotion: neutral with confidence: 0.631681
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 293.667 144.517 417.117 333.876 Score: 0.999674
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 293 144 124 189
+Detected emotion: neutral with confidence: 0.680254
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 292.576 138.091 421.6 337.757 Score: 0.999839
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 292 138 129 199
+Detected emotion: neutral with confidence: 0.532877
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 294.515 142.829 417.965 335.563 Score: 0.999857
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 294 142 123 193
+Detected emotion: neutral with confidence: 0.627985
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 297.182 143.041 415.298 334.08 Score: 0.999674
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 297 143 118 191
+Detected emotion: neutral with confidence: 0.637477
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.658 141.557 415.822 334.291 Score: 0.999771
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 141 119 193
+Detected emotion: neutral with confidence: 0.641793
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.129 143.041 416.351 334.08 Score: 0.999865
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 143 120 191
+Detected emotion: neutral with confidence: 0.650762
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 297.701 142.193 414.779 334.927 Score: 0.999887
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 297 142 117 192
+Detected emotion: neutral with confidence: 0.653994
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 295.81 143.041 414.974 334.08 Score: 0.999771
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 295 143 119 191
+Detected emotion: neutral with confidence: 0.669274
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 295.281 145.153 415.503 334.512 Score: 0.999509
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 295 145 120 189
+Detected emotion: neutral with confidence: 0.670696
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.334 143.677 414.45 334.716 Score: 0.999693
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 143 118 191
+Detected emotion: neutral with confidence: 0.689859
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.977 140.476 417.199 336.645 Score: 0.999808
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 140 121 196
+Detected emotion: neutral with confidence: 0.682624
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 295.596 139.43 416.884 333.874 Score: 0.999796
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 295 139 121 194
+Detected emotion: neutral with confidence: 0.675403
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.658 145.153 415.822 334.512 Score: 0.99971
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 145 119 189
+Detected emotion: neutral with confidence: 0.674952
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 294.748 138.969 416.036 336.879 Score: 0.999634
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 294 138 122 198
+Detected emotion: neutral with confidence: 0.701563
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.334 119.932 414.45 341.924 Score: 0.977043
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 119 118 222
+Detected emotion: neutral with confidence: 0.619216
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 295.335 117.039 410.361 341.001 Score: 0.977043
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 295 117 115 224
+Detected emotion: neutral with confidence: 0.542696
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.334 115.41 414.45 341.359 Score: 0.965797
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 115 118 226
+Detected emotion: neutral with confidence: 0.567426
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 300.723 121.84 411.757 343.832 Score: 0.98465
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 300 121 111 222
+Detected emotion: neutral with confidence: 0.64533
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 293.362 108.4 415.726 344.552 Score: 0.989763
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 293 108 122 236
+Detected emotion: neutral with confidence: 0.54711
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 295.335 121.84 410.361 343.832 Score: 0.961707
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 295 121 115 222
+Detected emotion: neutral with confidence: 0.61939
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 294.638 106.717 412.754 344.964 Score: 0.943384
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 294 106 118 238
+Detected emotion: neutral with confidence: 0.575357
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.334 110.075 414.45 344.15 Score: 0.980673
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 110 118 234
+Detected emotion: neutral with confidence: 0.548884
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 294.433 104.584 414.655 340.736 Score: 0.977043
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 294 104 120 236
+Detected emotion: neutral with confidence: 0.513864
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 293.12 103.312 417.664 339.464 Score: 0.978321
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 293 103 124 236
+Detected emotion: sadness with confidence: 0.499581
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 296.183 91.4972 411.209 340.503 Score: 0.989763
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 296 91 115 249
+Detected emotion: sadness with confidence: 0.595858
+ori_image w,h: 640 ,360 
+face model-->240 320 1 
+scale---> 0.500000
+Box: 293.667 117.111 417.117 333.298 Score: 0.980673
+1 Face Detected!!! 
+emotion detection model-->48 48 4 
+face_1: 293 117 124 216
+Detected emotion: neutral with confidence: 0.620731
+[root@Zeratul:face_0515]

@@ -1,0 +1,13 @@
+digraph "System Utils"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node4 [label="Sysutils_Cipher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___cipher.html",tooltip="Encryption and Decryption manage."];
+  Node2 [label="Sysutils_ADC",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___a_d_c.html",tooltip="Analog to digital conversion module."];
+  Node1 [label="System Utils",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node3 [label="Sysutils_Base",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___base.html",tooltip="System Basic Functions."];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+}

@@ -1,0 +1,13 @@
+digraph "IMPOSDRgnAttrData"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="IMPOSDRgnAttrData",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="OSD区域属性数据"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" picData" ,fontname="Helvetica"];
+  Node2 [label="picData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structpic_data.html",tooltip="OSD区域图片数据"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" coverData" ,fontname="Helvetica"];
+  Node3 [label="coverData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structcover_data.html",tooltip="OSD区域遮挡数据"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lineRectData" ,fontname="Helvetica"];
+  Node4 [label="lineRectData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structline_rect_data.html",tooltip="OSD区域线和矩形数据"];
+}

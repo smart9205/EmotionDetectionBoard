@@ -1,0 +1,9 @@
+digraph "IMP_Audio"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node2 [label="IMP(Ingenic Media Platform)",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__imp.html",tooltip=" "];
+  Node1 [label="IMP_Audio",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="audio module, including audio record and playback, audio encoding and decoding, volume and gain setti..."];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+}

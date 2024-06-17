@@ -1,0 +1,23 @@
+digraph "IMP(Ingenic Media Platform)"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node2 [label="IMP_System",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___system.html",tooltip="System module including base function such as Bind etc."];
+  Node4 [label="IMP_ISP",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___i_s_p.html",tooltip="Image signal processing unit. It contains several key function, for example, image effects setting,..."];
+  Node9 [label="IMP_IVS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___i_v_s.html",tooltip="IVS intelligent analysis common API."];
+  Node5 [label="IMP_Encoder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___encoder.html",tooltip="视频编码（JPEG, H264, H265）模块，包含编码通道管理，编码参数设置等功能"];
+  Node6 [label="IMP_Decoder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___decoder.html",tooltip="Video Decoder modules, only support JEPG decode for now."];
+  Node3 [label="IMP_FrameSource",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___frame_source.html",tooltip="Video Source is the image source of IMP system, it can set some functions such as setting the image r..."];
+  Node8 [label="IMP_OSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___o_s_d.html",tooltip="OSD module，On the video stream we can superimpose pictures, bitmap,line,rectangular box."];
+  Node1 [label="IMP(Ingenic Media Platform)",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node7 [label="IMP_Audio",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_m_p___audio.html",tooltip="audio module, including audio record and playback, audio encoding and decoding, volume and gain setti..."];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node9 [shape=plaintext, dir="back", style="solid"];
+}

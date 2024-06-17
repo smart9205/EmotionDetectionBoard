@@ -1,0 +1,17 @@
+digraph "System Utils"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node4 [label="Sysutils_Battery",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___battery.html",tooltip="电池管理"];
+  Node5 [label="Sysutils_Cipher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___cipher.html",tooltip="加解密管理"];
+  Node2 [label="Sysutils_ADC",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___a_d_c.html",tooltip="模数转化模块"];
+  Node6 [label="Sysutils_Misc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___misc.html",tooltip="其他功能."];
+  Node1 [label="System Utils",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node3 [label="Sysutils_Base",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___sysutils___base.html",tooltip="系统基础功能."];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+}
