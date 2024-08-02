@@ -68,13 +68,13 @@ int main(int argc, char *argv[])
 
 	int sensor_sub_width = 640;
 	int sensor_sub_height = 360;
-	/* Step.1 System init */
+	/* Step.1(1) System init */
 	ret = sample_system_init();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "IMP_System_Init() failed\n");
 		return -1;
 	}
-	/* Step.2 FrameSource init */
+	/* Step.2(2) FrameSource init */
 	ret = sample_framesource_init();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "FrameSource init failed\n");
@@ -82,7 +82,12 @@ int main(int argc, char *argv[])
 	}
 	printf("framesource init success.\n");
 
-	/* Step.3 Encoder init */
+
+
+
+/////////////////////////////////////////////////////////////////////////  For Recording Step.3 ~ 5 //////////////////////////////////////////
+	
+	/* Step.3 Create encoder group */
 	for (i = 0; i < FS_CHN_NUM; i++) {
 		if (chn[i].enable) {
 			ret = IMP_Encoder_CreateGroup(chn[i].index);
@@ -94,6 +99,8 @@ int main(int argc, char *argv[])
 	}
 	printf("IMP_Encoder_CreateGroup success.\n");
 
+
+	/* Step.4 Encoder init */
 	ret = sample_encoder_init();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "Encoder init failed\n");
@@ -107,7 +114,7 @@ int main(int argc, char *argv[])
 	// 	return -1;
 	// }
 
-	/* Step.4 Bind */
+	/* Step.5 Bind */
 	for (i = 0; i < FS_CHN_NUM; i++) {
 		if (chn[i].enable) {
 			ret = IMP_System_Bind(&chn[i].framesource_chn, &chn[i].imp_encoder);
@@ -120,13 +127,18 @@ int main(int argc, char *argv[])
 	printf("IMP_System_Bind success.\n");
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 	g_sub_nv12_buf_move = (unsigned char *)malloc(sensor_sub_width * sensor_sub_height * 3 / 2);
 	if (g_sub_nv12_buf_move == 0) {
 		printf("error(%s,%d): malloc buf failed \n", __func__, __LINE__);
 		return NULL;
 	}
-	/* Step.3 framesource Stream On */
+
+	/* Step.6(3) framesource Stream On */
 	ret = sample_framesource_streamon();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "ImpStreamOn failed\n");
@@ -134,16 +146,19 @@ int main(int argc, char *argv[])
 	}
 	printf("ImpStreamOn success.\n");
 
-	/* Step.4 ivs move start */
+	/* Step.7(4) ivs move start */
 	ret = sample_venus_init();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "sample_venus_init failed\n");
 		return -1;
 	}
 
-	/* Step.5 start to get ivs move result */
+	/* Step.8(5) start to get ivs move result */
 	bool isRec = false;
-	for (i = 0; i < 2*NR_FRAMES_TO_SAVE; i++) {
+	int n_clips = 0;
+	int rec_start_time = 0;
+	int rec_stop_time = 0;
+	for (i = 0; i < 3*NR_FRAMES_TO_SAVE; i++) {
 
 		ret = IMP_FrameSource_SnapFrame(1, PIX_FMT_NV12, sensor_sub_width, sensor_sub_height, g_sub_nv12_buf_move, &frame);
 		if (ret < 0) {
@@ -152,45 +167,46 @@ int main(int argc, char *argv[])
 		}
 		frame.virAddr = (unsigned int)g_sub_nv12_buf_move;
 		ret = Goto_Magik_Detect((char *)frame.virAddr, sensor_sub_width, sensor_sub_height);
-		if (ret == 1 && isRec == false){
-			printf("Recording started........");
-			isRec = true;
-			int recstate = sample_get_video_stream();
-			if (recstate < 0) {
-				IMP_LOG_ERR(TAG, "Get H264 stream failed\n");
-				printf("Get H264 stream failed\n");  
-				return -1;
-			}
-		}
 
-/*
-		if (ret > 0 && isRec == false){
-			printf("Recording started........")
-			isRec = true
-			int recstate = sample_get_video_stream();
+		if (ret == 1 && !isRec){
+			n_clips ++;
+			printf("Recording started........\n");
+			isRec = true;
+			int recstate = sample_get_video_stream(n_clips, 0);
 			if (recstate < 0) {
 				IMP_LOG_ERR(TAG, "Get H264 stream failed\n");
-				printf("Get H264 stream failed\n");  
+				printf("Get H264 stream failed\n");
 				return -1;
 			}
+			rec_start_time = i;
 		}
-*/
+		if (ret != 1 && isRec && (i-rec_start_time) > NR_FRAMES_TO_REC){
+			int recstate = sample_get_video_stream(n_clips, 1);
+			isRec = false;
+			rec_stop_time = i;
+			printf("stopping recording........\n");
+		}
 	}
+	
+	if (isRec)
+		int recstate = sample_get_video_stream(n_clips, 1);
 
 	free(g_sub_nv12_buf_move);
-	/* Step.6 ivs move stop */
+	/* Step.9(6) ivs move stop */
 	ret = sample_venus_deinit();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "sample_venus_deinit() failed\n");
 		return -1;
 	}
-	/* Step.7 Stream Off */
+	/* Step.10(7) Stream Off */
 	ret = sample_framesource_streamoff();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "FrameSource StreamOff failed\n");
 		return -1;
 	}
 
+
+////////////////////////////////////////////////////// release after recording ////////////////////////////////////
 	for (i = 0; i < FS_CHN_NUM; i++) {
 		if (chn[i].enable) {
 			ret = IMP_System_UnBind(&chn[i].framesource_chn, &chn[i].imp_encoder);
@@ -206,15 +222,16 @@ int main(int argc, char *argv[])
 		IMP_LOG_ERR(TAG, "Encoder exit failed\n");
 		return -1;
 	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-	/* Step.8 FrameSource exit */
+	/* Step.11(8) FrameSource exit */
 	ret = sample_framesource_exit();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "FrameSource exit failed\n");
 		return -1;
 	}
-	/* Step.9 System exit */
+	/* Step.12(9) System exit */
 	ret = sample_system_exit();
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "sample_system_exit() failed\n");

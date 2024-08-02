@@ -41,6 +41,8 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "imp_osd.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "math.h": "c",
+        "sample-common.h": "c"
     }
 }

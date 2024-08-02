@@ -169,6 +169,7 @@ extern "C"
 
 #define CHN_ENABLE 		1
 #define CHN_DISABLE 	0
+#define NR_FRAMES_TO_REC		80	// updated
 
 /*#define SUPPORT_RGB555LE*/
 
@@ -213,7 +214,7 @@ IMPRgnHandle *sample_osd_init(int grpNum);
 int sample_osd_exit(IMPRgnHandle *prHandle,int grpNum);
 
 int sample_get_frame();
-int sample_get_video_stream();
+int sample_get_video_stream(int n_clips, int stop);  // modified
 int sample_get_video_stream_byfd();
 int sample_get_jpeg_snap();
 

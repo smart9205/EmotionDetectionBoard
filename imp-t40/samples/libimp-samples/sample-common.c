@@ -323,6 +323,14 @@ IMPISPCameraInputMode mode = {
 
 int sensor_bypass[3] = {0, 0, 1};
 
+typedef struct {  
+    int arg;  
+    int nClip;  
+	_Atomic int stop; // Termination flag  
+} ThreadArgs;  
+ 
+
+
 int sample_change_joint_mode(IMPISPCameraInputMode *dualmode)
 {
 	//printf("before joint_mode = %d\n",mode.joint_mode);
@@ -1573,10 +1581,7 @@ int sample_osd_exit(IMPRgnHandle *prHander,int grpNum)
 static int save_stream(int fd, IMPEncoderStream *stream)
 {
 	int ret, i, nr_pack = stream->packCount;
-
-  //IMP_LOG_DBG(TAG, "----------packCount=%d, stream->seq=%u start----------\n", stream->packCount, stream->seq);
 	for (i = 0; i < nr_pack; i++) {
-	//IMP_LOG_DBG(TAG, "[%d]:%10u,%10lld,%10u,%10u,%10u\n", i, stream->pack[i].length, stream->pack[i].timestamp, stream->pack[i].frameEnd, *((uint32_t *)(&stream->pack[i].nalType)), stream->pack[i].sliceType);
 		IMPEncoderPack *pack = &stream->pack[i];
 		if(pack->length){
 			uint32_t remSize = stream->streamSize - pack->offset;
@@ -1600,7 +1605,6 @@ static int save_stream(int fd, IMPEncoderStream *stream)
 			}
 		}
 	}
-  //IMP_LOG_DBG(TAG, "----------packCount=%d, stream->seq=%u end----------\n", stream->packCount, stream->seq);
 	return 0;
 }
 
@@ -1651,60 +1655,42 @@ static int save_stream_by_name(char *stream_prefix, int idx, IMPEncoderStream *s
 	return 0;
 }
 
-static void *get_video_stream(void *args)
+static void *get_video_stream(void *args)		// modified
 {
 	int val, i, chnNum, ret;
 	char stream_path[64];
 	IMPEncoderEncType encType;
 	int stream_fd = -1, totalSaveCnt = 0;
 
-	val = (int)args;
+	ThreadArgs *threadArgs = (ThreadArgs *)args;  
+    val = (int)threadArgs->arg;  
+    int nClip = threadArgs->nClip;  
 	chnNum = val & 0xffff;
 	encType = (val >> 16) & 0xffff;
-
-#ifdef USE_ROI
-	IMPEncoderRoiAttr roiAttr;
-	IMP_Encoder_GetChnRoiAttr(0, &roiAttr);
-	//printf("index=%d, enable=%d, x=%d, y=%d, w=%d, h=%d\n", roiAttr.index, roiAttr.enable, roiAttr.RoiParam.iPosX, roiAttr.RoiParam.iPosY, roiAttr.RoiParam.iWidth, roiAttr.RoiParam.iHeight);
-	roiAttr.index = 0;
-	roiAttr.enable = 1;
-	roiAttr.RoiParam.iPosX = 448;
-	roiAttr.RoiParam.iPosY = 448;
-	roiAttr.RoiParam.iWidth = 640;
-	roiAttr.RoiParam.iHeight = 640;
-	roiAttr.RoiParam.iQuality = IMP_ROI_QUALITY_LOW;
-	IMP_Encoder_SetChnRoiAttr(0, &roiAttr);
-#endif
-
 	ret = IMP_Encoder_StartRecvPic(chnNum);
 	if (ret < 0) {
-		IMP_LOG_ERR(TAG, "IMP_Encoder_StartRecvPic(%d) failed\n", chnNum);
 		printf("IMP_Encoder_StartRecvPic(%d) failed\n", chnNum);
 		return ((void *)-1);
 	}
-	sprintf(stream_path, "%s/stream-%d.%s", STREAM_FILE_PATH_PREFIX, chnNum,
+
+	sprintf(stream_path, "%s/stream-%d.%s", STREAM_FILE_PATH_PREFIX, nClip,
 			(encType == IMP_ENC_TYPE_AVC) ? "h264" : ((encType == IMP_ENC_TYPE_HEVC) ? "h265" : "jpeg"));
+	printf("Video ChnNum=%d Open Stream file %s\n", chnNum, stream_path);  
 
-    if (encType == IMP_ENC_TYPE_JPEG) {
-		totalSaveCnt = ((NR_FRAMES_TO_SAVE / 50) > 0) ? (NR_FRAMES_TO_SAVE / 50) : 1;
-	} else {
-		IMP_LOG_DBG(TAG, "Video ChnNum=%d Open Stream file %s ", chnNum, stream_path);
-		printf("Video ChnNum=%d Open Stream file %s\n", chnNum, stream_path);  
+	stream_fd = open(stream_path, O_RDWR | O_CREAT | O_TRUNC, 0777);
+	if (stream_fd < 0) {
+		IMP_LOG_ERR(TAG, "failed: %s\n", strerror(errno));
+		printf("failed: %s\n", strerror(errno));
 
-
-		stream_fd = open(stream_path, O_RDWR | O_CREAT | O_TRUNC, 0777);
-		if (stream_fd < 0) {
-			IMP_LOG_ERR(TAG, "failed: %s\n", strerror(errno));
-			printf("failed: %s\n", strerror(errno));
-
-			return ((void *)-1);
-		}
-		IMP_LOG_DBG(TAG, "OK\n");
-		printf("OK\n");
-		totalSaveCnt = NR_FRAMES_TO_SAVE;
+		return ((void *)-1);
 	}
+	IMP_LOG_DBG(TAG, "OK\n");
+	printf("OK\n");
+	totalSaveCnt = NR_FRAMES_TO_SAVE;
 
-	for (i = 0; i < totalSaveCnt; i++) {
+	i = 0;
+	while (!threadArgs->stop){
+		i++;
 		ret = IMP_Encoder_PollingStream(chnNum, 1000);
 		if (ret < 0) {
 			IMP_LOG_ERR(TAG, "IMP_Encoder_PollingStream(%d) timeout\n", chnNum);
@@ -1715,108 +1701,87 @@ static void *get_video_stream(void *args)
 		IMPEncoderStream stream;
 		/* Get H264 or H265 Stream */
 		ret = IMP_Encoder_GetStream(chnNum, &stream, 1);
-#ifdef SHOW_FRM_BITRATE
-			int j, len = 0;
-			for (j = 0; j < stream.packCount; j++) {
-				len += stream.pack[j].length;
-			}
-			bitrate_sp[chnNum] += len;
-			frmrate_sp[chnNum]++;
-
-			int64_t now = IMP_System_GetTimeStamp() / 1000;
-			if(!first_time[chnNum]){
-				statime_sp[chnNum] = now;
-				first_time[chnNum] = 1;
-				printf("ch%d Change Mode, repeatedly.\n", chnNum);
-			}
-			if(((int)(now - statime_sp[chnNum]) / 1000) >= FRM_BIT_RATE_TIME){
-				double fps = (double)frmrate_sp[chnNum] / ((double)(now - statime_sp[chnNum]) / 1000);
-				double kbr = (double)bitrate_sp[chnNum] * 8 / (double)(now - statime_sp[chnNum]);
-
-				printf("streamNum[%d]:FPS: %0.2f,Bitrate: %0.2f(kbps)\n", chnNum, fps, kbr);
-				//fflush(stdout);
-
-				frmrate_sp[chnNum] = 0;
-				bitrate_sp[chnNum] = 0;
-				statime_sp[chnNum] = now;
-			}
-#endif
 		if (ret < 0) {
 			IMP_LOG_ERR(TAG, "IMP_Encoder_GetStream(%d) failed\n", chnNum);
 			printf("IMP_Encoder_GetStream(%d) failed\n", chnNum);
 			return ((void *)-1);
 		}
-
-    if (encType == IMP_ENC_TYPE_JPEG) {
-      ret = save_stream_by_name(stream_path, i, &stream);
-      if (ret < 0) {
-        return ((void *)ret);
-      }
-    }
-#if 1
-    else {
-      ret = save_stream(stream_fd, &stream);
-      if (ret < 0) {
-        close(stream_fd);
-        return ((void *)ret);
-      }
-    }
-#endif
-    IMP_Encoder_ReleaseStream(chnNum, &stream);
-  }
+		ret = save_stream(stream_fd, &stream);
+		if (ret < 0) {
+			close(stream_fd);
+			printf("stopped recording(%d) by failed\n", nClip);
+			return ((void *)ret);
+		}
+		IMP_Encoder_ReleaseStream(chnNum, &stream);
+	}
 
 	close(stream_fd);
-
+	printf("-------------- stopped recording(%d)\n", nClip);
 	ret = IMP_Encoder_StopRecvPic(chnNum);
 	if (ret < 0) {
 		IMP_LOG_ERR(TAG, "IMP_Encoder_StopRecvPic(%d) failed\n", chnNum);
 		printf("IMP_Encoder_StopRecvPic(%d) failed\n", chnNum);
 		return ((void *)-1);
 	}
-#ifdef SHOW_FRM_BITRATE
-	first_time[chnNum] = 0;
-	frmrate_sp[chnNum] = 0;
-	bitrate_sp[chnNum] = 0;
-#endif
-
-
 	return ((void *)0);
 }
 
-int sample_get_video_stream()
+// Global variables to store thread information  
+static pthread_t tid[FS_CHN_NUM];  
+static ThreadArgs threadArgs[FS_CHN_NUM];  
+static int threads_initialized = 0; // Flag to track if threads are initialized  
+
+int sample_get_video_stream(int n_clips, int stop)	 // modified
 {
 	unsigned int i;
 	int ret;
-	pthread_t tid[FS_CHN_NUM];
 
-	for (i = 0; i < FS_CHN_NUM; i++) {
-		if (chn[i].enable) {
-            int arg = 0;
-            if (chn[i].payloadType == IMP_ENC_PROFILE_JPEG) {
-                arg = (((chn[i].payloadType >> 24) << 16) | (4 + chn[i].index));
-            } else {
-                arg = (((chn[i].payloadType >> 24) << 16) | chn[i].index);
-            }
-			ret = pthread_create(&tid[i], NULL, get_video_stream, (void *)arg);
-			if (ret < 0) {
-				IMP_LOG_ERR(TAG, "Create ChnNum%d get_video_stream failed\n", (chn[i].payloadType == IMP_ENC_PROFILE_JPEG) ? (4 + chn[i].index) : chn[i].index);
-				printf("Create ChnNum%d get_video_stream failed\n", (chn[i].payloadType == IMP_ENC_PROFILE_JPEG) ? (4 + chn[i].index) : chn[i].index);
+	if (!stop) {  
+		for (i = 0; i < FS_CHN_NUM; i++) {
+			if (chn[i].enable) {
+				int arg = 0;
+				if (chn[i].payloadType == IMP_ENC_PROFILE_JPEG) {
+					arg = (((chn[i].payloadType >> 24) << 16) | (4 + chn[i].index));
+				} else {
+					arg = (((chn[i].payloadType >> 24) << 16) | chn[i].index);
+				}
+
+				threadArgs[i].arg = arg;  
+				threadArgs[i].nClip = n_clips; 
+				threadArgs[i].stop = 0;
+
+				ret = pthread_create(&tid[i], NULL, get_video_stream, (void *)&threadArgs[i]);
+				// ret = pthread_create(&tid[i], NULL, get_video_stream, (void *)arg);
+				if (ret < 0) {
+					printf("Create ChnNum%d get_video_stream failed\n", (chn[i].payloadType == IMP_ENC_PROFILE_JPEG) ? (4 + chn[i].index) : chn[i].index);
+				}
 			}
 		}
+		threads_initialized = 1; // Set the flag as threads are initialized 
 	}
 
-	for (i = 0; i < FS_CHN_NUM; i++) {
-		if (jointmode_en == 1 && i == 3){
-			continue;
-		}
+	// If stop is requested, stop the existing threads  
+    if (stop && threads_initialized) {  
+        for (i = 0; i < FS_CHN_NUM; i++) {  
+            if (chn[i].enable) {  
+                threadArgs[i].stop = 1; // Signal the thread to stop  
+            }  
+        }  
+  
+        for (i = 0; i < FS_CHN_NUM; i++) { 
+			if (jointmode_en == 1 && i == 3){
+				continue;
+			} 
 
-		if (chn[i].enable) {
-			pthread_join(tid[i],NULL);
-		}
-	}
-
+            if (chn[i].enable) {  
+                pthread_join(tid[i], NULL);  
+            }  
+        }  
+        threads_initialized = 0; // Reset the flag as threads are stopped  
+    }  
 	return 0;
 }
+
 
 int sample_get_jpeg_snap()
 {
