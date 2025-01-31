@@ -169,7 +169,6 @@ extern "C"
 
 #define CHN_ENABLE 		1
 #define CHN_DISABLE 	0
-#define NR_FRAMES_TO_REC		80	// updated
 
 /*#define SUPPORT_RGB555LE*/
 

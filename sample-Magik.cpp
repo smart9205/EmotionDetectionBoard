@@ -10,6 +10,15 @@
 #include "inference_nv12.h"
 
 #define TAG "Sample-IVS-unbind-move"
+#include <signal.h> 
+#include <pthread.h> 
+#include <vector>
+#include <dirent.h>
+#include <ctime>
+#include <sstream>
+#include <fstream>
+#include <cstdlib> 
+#include <iostream>  
 
 #define FACE_MODEL_PATH "face.bin"
 #define EMO_MODEL_PATH "emo.bin"
@@ -17,6 +26,11 @@
 extern struct chn_conf chn[];
 std::unique_ptr<venus::BaseNet> face_net;
 std::unique_ptr<venus::BaseNet> emo_net;
+
+pthread_mutex_t rec_mutex = PTHREAD_MUTEX_INITIALIZER;  
+volatile bool isRec = false;  
+volatile bool isMerge = false;
+pthread_t rec_thread, merge_thread;
 
 static int sample_venus_init()
 {
@@ -47,8 +61,138 @@ static int sample_venus_deinit()
 	return ret;
 }
 
+// Global variable to control the loop  
+volatile sig_atomic_t keep_running = 1;  
+
+// Signal handler function to handle SIGINT  
+void handle_sigint(int sig) {  
+    keep_running = 0;  
+}
+
+bool createTempFileList(const std::vector<std::string>& videoFiles, const std::string& listFilePath) {  
+    std::ofstream listFile(listFilePath);  
+    if (!listFile.is_open()) {  
+        std::cerr << "Error: Could not open file list for writing." << std::endl;  
+        return false;  
+    }  
+    for (const auto& filePath : videoFiles) {  
+        listFile << "file '" << filePath << "'\n";  
+    }  
+    listFile.close();  
+    return true;  
+} 
+
+// Function to handle video recording  
+void* recording_thread_func(void* arg) {  
+    int n_clips = *((int*)arg);  
+    printf("Recording started for clip %d\n", n_clips);  
+    sample_get_video_stream(n_clips, 0);  
+
+	// Wait until the main loop signals to stop recording  
+    while (1) {  
+        pthread_mutex_lock(&rec_mutex);  
+        if (!isRec) { // Check if the main loop has signaled to stop  
+            printf("Stopping recording for clip %d\n", n_clips);  
+            sample_get_video_stream(n_clips, 1);  
+            pthread_mutex_unlock(&rec_mutex);  
+            break; // Exit the loop and finish the thread  
+        }  
+        pthread_mutex_unlock(&rec_mutex);  
+        usleep(100000); // Sleep for a short duration to avoid busy waiting  
+    }
+  
+    // pthread_mutex_lock(&rec_mutex);  
+    // if (isRec) {  
+    //     printf("Stopping recording for clip %d\n", n_clips);  
+    //     sample_get_video_stream(n_clips, 1);  
+    //     isRec = false;  
+    // }  
+    // pthread_mutex_unlock(&rec_mutex);  
+  
+    return NULL;  
+} 
+
+void* merge_recording_thread_func(void* arg) {  
+    int nClips = *((int*)arg);  
+    printf("Merging recording files......\n");  
+  
+    std::vector<std::string> videoFiles;  
+    const char* directoryPath = STREAM_FILE_PATH_PREFIX;  
+    const char* filePrefix = "stream-";  
+    const char* fileExtension = ".h265";  
+  
+    DIR* dir = opendir(directoryPath);  
+    if (dir == NULL) {  
+        perror("opendir");  
+        return (void*)-1;  
+    }  
+  
+    struct dirent* entry;  
+    while ((entry = readdir(dir)) != NULL) {  
+        if (entry->d_type == DT_REG) {  
+            const char* fileName = entry->d_name;  
+            if (strncmp(fileName, filePrefix, strlen(filePrefix)) == 0 &&  
+                strstr(fileName, fileExtension) != NULL) {  
+                videoFiles.push_back(std::string(directoryPath) + "/" + fileName);  
+            }  
+        }  
+    }  
+    closedir(dir);  
+  
+    printf("Files to merge:\n");  
+    for (const auto& file : videoFiles) {  
+        printf("%s\n", file.c_str());  
+    }  
+  
+    std::string ffmpegPath = "./ffmpeg";  
+    std::string tempFilePath = "temp_file_list.txt";  
+    if (!createTempFileList(videoFiles, tempFilePath)) {  
+        return (void*)1;  
+    }  
+  
+    std::string concatenatedFile = "concatenated.h265";  
+    std::string concatCmd = ffmpegPath + " -f concat -safe 0 -i " + tempFilePath + " -c copy " + concatenatedFile;  
+    printf("Executing: %s\n", concatCmd.c_str());  
+    if (system(concatCmd.c_str()) != 0) {  
+        fprintf(stderr, "Error concatenating files.\n");  
+        return (void*)1;  
+    }  
+  
+    std::time_t t = std::time(nullptr);  
+    std::tm* tm = std::localtime(&t);  
+    char time_str[100];  
+    std::strftime(time_str, sizeof(time_str), "%Y%m%d%H%M%S", tm);  
+    std::string filename = "memVideo_" + std::string(time_str) + ".mp4";  
+  
+    // std::string ffmpegCmd = ffmpegPath + " -v debug -threads 1 -i " + concatenatedFile + " -c:v libx264 -preset ultrafast -crf 22 " + filename;  
+	std::string ffmpegCmd = ffmpegPath + " -v error -threads 1 -i " + concatenatedFile + " -c:v libx264 -preset ultrafast -crf 22 " + filename;  
+
+    printf("Executing: %s\n", ffmpegCmd.c_str());  
+    int result = system(ffmpegCmd.c_str());  
+    if (result != 0) {  
+        fprintf(stderr, "Error re-encoding file.\n");  
+        return (void*)(long)result;  
+    }  
+  
+    printf("Successfully merged and re-encoded videos\n");  
+  
+    remove(tempFilePath.c_str());  
+    remove(concatenatedFile.c_str());  
+
+	  // Reset n_clips after merge is done  
+
+    // pthread_mutex_lock(&rec_mutex);  
+    // nClips = 0;  // This update won't affect the argument passed to merge thread  
+    // isMerge = false;  
+    // pthread_mutex_unlock(&rec_mutex); 
+  
+    return (void*)0;  
+}  
+
+
 int main(int argc, char *argv[])
 {
+	signal(SIGINT, handle_sigint); 
 	int i, ret;
 	IMPIVSInterface *interface = NULL;
 	IMP_IVS_MoveParam param;
@@ -62,9 +206,6 @@ int main(int argc, char *argv[])
 	chn[4].enable = 0;
 	chn[5].enable = 0;
 	chn[6].enable = 0;
-
-	// chn[1].enable = 0;
-	// chn[2].enable = 0;
 
 	int sensor_sub_width = 640;
 	int sensor_sub_height = 360;
@@ -81,8 +222,6 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 	printf("framesource init success.\n");
-
-
 
 
 /////////////////////////////////////////////////////////////////////////  For Recording Step.3 ~ 5 //////////////////////////////////////////
@@ -154,42 +293,80 @@ int main(int argc, char *argv[])
 	}
 
 	/* Step.8(5) start to get ivs move result */
-	bool isRec = false;
 	int n_clips = 0;
-	int rec_start_time = 0;
-	int rec_stop_time = 0;
-	for (i = 0; i < 3*NR_FRAMES_TO_SAVE; i++) {
-
+	int NR_FRAMES_TO_REC = 50;
+	while (keep_running) {
 		ret = IMP_FrameSource_SnapFrame(1, PIX_FMT_NV12, sensor_sub_width, sensor_sub_height, g_sub_nv12_buf_move, &frame);
 		if (ret < 0) {
 			printf("%d get frame failed try again\n", 0);
 			usleep(30*1000);
+			continue;
 		}
-		frame.virAddr = (unsigned int)g_sub_nv12_buf_move;
-		ret = Goto_Magik_Detect((char *)frame.virAddr, sensor_sub_width, sensor_sub_height);
 
-		if (ret == 1 && !isRec){
-			n_clips ++;
-			printf("Recording started........\n");
-			isRec = true;
-			int recstate = sample_get_video_stream(n_clips, 0);
-			if (recstate < 0) {
-				IMP_LOG_ERR(TAG, "Get H264 stream failed\n");
-				printf("Get H264 stream failed\n");
-				return -1;
-			}
-			rec_start_time = i;
-		}
-		if (ret != 1 && isRec && (i-rec_start_time) > NR_FRAMES_TO_REC){
-			int recstate = sample_get_video_stream(n_clips, 1);
-			isRec = false;
-			rec_stop_time = i;
-			printf("stopping recording........\n");
-		}
+		frame.virAddr = (unsigned int)g_sub_nv12_buf_move;
+		int detect_result = Goto_Magik_Detect((char *)frame.virAddr, sensor_sub_width, sensor_sub_height);
+
+		if (detect_result == 1 && !isRec && !isMerge) {  
+            pthread_mutex_lock(&rec_mutex);  
+            n_clips++;  
+            isRec = true;  
+            if (pthread_create(&rec_thread, nullptr, recording_thread_func, &n_clips) != 0) {  
+                fprintf(stderr, "Failed to create recording thread\n");  
+                isRec = false;  
+            }  
+            pthread_mutex_unlock(&rec_mutex);  
+        } else if (detect_result != 1 && isRec) {  
+            if (--NR_FRAMES_TO_REC <= 0) {  
+                pthread_mutex_lock(&rec_mutex);  
+                isRec = false;  
+                pthread_mutex_unlock(&rec_mutex);  
+                pthread_join(rec_thread, nullptr);  
+                NR_FRAMES_TO_REC = 50;  
+            }  
+        }  
+  
+        if (detect_result == 3 && !isRec && !isMerge && n_clips > 1) {  
+            pthread_mutex_lock(&rec_mutex);  
+            isMerge = true;  
+            if (pthread_create(&merge_thread, nullptr, merge_recording_thread_func, &n_clips) != 0) {  
+                fprintf(stderr, "Failed to create merge recording thread\n");  
+                isMerge = false;  
+            }  
+            pthread_mutex_unlock(&rec_mutex);  
+        }  
+  
+        // Wait for merge thread to complete outside of the detection loop  
+        if (isMerge) {  
+            pthread_mutex_lock(&rec_mutex);  
+            int joinResult = pthread_join(merge_thread, nullptr);  
+            if (joinResult != 0) {  
+                fprintf(stderr, "Failed to join merge recording thread: %s\n", strerror(joinResult));  
+            }  
+            isMerge = false;  
+            n_clips = 0; // Reset clips count after merge  
+            pthread_mutex_unlock(&rec_mutex);  
+        }   
+
 	}
-	
-	if (isRec)
-		int recstate = sample_get_video_stream(n_clips, 1);
+
+    pthread_mutex_lock(&rec_mutex);  
+    if (isRec) {  
+        isRec = false;  
+        pthread_mutex_unlock(&rec_mutex);  
+        pthread_join(rec_thread, NULL);  
+    }else {  
+        pthread_mutex_unlock(&rec_mutex);  
+    }  
+
+	pthread_mutex_lock(&rec_mutex);  
+    if (isMerge) {  
+        isMerge = false;  
+        pthread_mutex_unlock(&rec_mutex);  
+        pthread_join(merge_thread, NULL);  
+    } else {  
+        pthread_mutex_unlock(&rec_mutex);  
+    }
+
 
 	free(g_sub_nv12_buf_move);
 	/* Step.9(6) ivs move stop */
@@ -237,5 +414,7 @@ int main(int argc, char *argv[])
 		IMP_LOG_ERR(TAG, "sample_system_exit() failed\n");
 		return -1;
 	}
+
+	pthread_mutex_destroy(&rec_mutex); 
 	return 0;
 }

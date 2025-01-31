@@ -1470,7 +1470,6 @@ printf("[%s][%d]\n",__func__,__LINE__);
 	IMPOSDRgnAttr rAttrMosaic;
 	memset(&rAttrMosaic, 0, sizeof(IMPOSDRgnAttr));
 
-	rAttrMosaic.type = OSD_REH_MASAIC;
 	rAttrMosaic.mosaicAttr.x = 1000;
 	rAttrMosaic.mosaicAttr.y = 100;
 	rAttrMosaic.mosaicAttr.mosaic_width = 200;
@@ -1581,11 +1580,18 @@ int sample_osd_exit(IMPRgnHandle *prHander,int grpNum)
 static int save_stream(int fd, IMPEncoderStream *stream)
 {
 	int ret, i, nr_pack = stream->packCount;
+
+	int debug_ind = 0;
 	for (i = 0; i < nr_pack; i++) {
+		debug_ind++;
 		IMPEncoderPack *pack = &stream->pack[i];
+		if (debug_ind<2)
+			printf("------ save stream ------1\n");
 		if(pack->length){
 			uint32_t remSize = stream->streamSize - pack->offset;
 			if(remSize < pack->length){
+				if (debug_ind<2)
+					printf("------ save stream ------2\n");
 				ret = write(fd, (void *)(stream->virAddr + pack->offset), remSize);
 				if (ret != remSize) {
 					IMP_LOG_ERR(TAG, "stream write ret(%d) != pack[%d].remSize(%d) error:%s\n", ret, i, remSize, strerror(errno));
@@ -1597,6 +1603,8 @@ static int save_stream(int fd, IMPEncoderStream *stream)
 					return -1;
 				}
 			}else {
+				if (debug_ind<2)
+					printf("------ save stream ------3\n");
 				ret = write(fd, (void *)(stream->virAddr + pack->offset), pack->length);
 				if (ret != pack->length) {
 					IMP_LOG_ERR(TAG, "stream write ret(%d) != pack[%d].length(%d) error:%s\n", ret, i, pack->length, strerror(errno));
@@ -1657,19 +1665,19 @@ static int save_stream_by_name(char *stream_prefix, int idx, IMPEncoderStream *s
 
 static void *get_video_stream(void *args)		// modified
 {
-	int val, i, chnNum, ret;
-	char stream_path[64];
+	int ret, chnNum, stream_fd = -1;  
+    char stream_path[64];  
 	IMPEncoderEncType encType;
-	int stream_fd = -1, totalSaveCnt = 0;
-
-	ThreadArgs *threadArgs = (ThreadArgs *)args;  
-    val = (int)threadArgs->arg;  
+	ThreadArgs *threadArgs = (ThreadArgs *)args;
+    int val = (int)threadArgs->arg;  
     int nClip = threadArgs->nClip;  
 	chnNum = val & 0xffff;
 	encType = (val >> 16) & 0xffff;
+	
 	ret = IMP_Encoder_StartRecvPic(chnNum);
+	printf("IMP_Encoder_StartRecvPic------ %d\n", ret);
 	if (ret < 0) {
-		printf("IMP_Encoder_StartRecvPic(%d) failed\n", chnNum);
+		fprintf(stderr, "IMP_Encoder_StartRecvPic(%d) failed\n", chnNum); 
 		return ((void *)-1);
 	}
 
@@ -1679,22 +1687,15 @@ static void *get_video_stream(void *args)		// modified
 
 	stream_fd = open(stream_path, O_RDWR | O_CREAT | O_TRUNC, 0777);
 	if (stream_fd < 0) {
-		IMP_LOG_ERR(TAG, "failed: %s\n", strerror(errno));
-		printf("failed: %s\n", strerror(errno));
-
+		fprintf(stderr, "file open failed: %s\n", strerror(errno)); 
 		return ((void *)-1);
 	}
-	IMP_LOG_DBG(TAG, "OK\n");
-	printf("OK\n");
-	totalSaveCnt = NR_FRAMES_TO_SAVE;
+	printf("Stream file opened successfully %d\n", stream_fd);
 
-	i = 0;
 	while (!threadArgs->stop){
-		i++;
 		ret = IMP_Encoder_PollingStream(chnNum, 1000);
 		if (ret < 0) {
-			IMP_LOG_ERR(TAG, "IMP_Encoder_PollingStream(%d) timeout\n", chnNum);
-			printf("IMP_Encoder_PollingStream(%d) timeout\n", chnNum);
+			fprintf(stderr, "IMP_Encoder_PollingStream(%d) timeout\n", chnNum);  
 			continue;
 		}
 
@@ -1702,10 +1703,11 @@ static void *get_video_stream(void *args)		// modified
 		/* Get H264 or H265 Stream */
 		ret = IMP_Encoder_GetStream(chnNum, &stream, 1);
 		if (ret < 0) {
-			IMP_LOG_ERR(TAG, "IMP_Encoder_GetStream(%d) failed\n", chnNum);
-			printf("IMP_Encoder_GetStream(%d) failed\n", chnNum);
+			fprintf(stderr, "IMP_Encoder_GetStream(%d) failed\n", chnNum);
+			close(stream_fd);
 			return ((void *)-1);
 		}
+		
 		ret = save_stream(stream_fd, &stream);
 		if (ret < 0) {
 			close(stream_fd);
@@ -1733,10 +1735,11 @@ static int threads_initialized = 0; // Flag to track if threads are initialized
 
 int sample_get_video_stream(int n_clips, int stop)	 // modified
 {
-	unsigned int i;
 	int ret;
+	unsigned int i;
 
-	if (!stop) {  
+	if (!stop) {
+		memset(threadArgs, 0, sizeof(threadArgs));  // Initialize thread arguments
 		for (i = 0; i < FS_CHN_NUM; i++) {
 			if (chn[i].enable) {
 				int arg = 0;
@@ -1751,7 +1754,6 @@ int sample_get_video_stream(int n_clips, int stop)	 // modified
 				threadArgs[i].stop = 0;
 
 				ret = pthread_create(&tid[i], NULL, get_video_stream, (void *)&threadArgs[i]);
-				// ret = pthread_create(&tid[i], NULL, get_video_stream, (void *)arg);
 				if (ret < 0) {
 					printf("Create ChnNum%d get_video_stream failed\n", (chn[i].payloadType == IMP_ENC_PROFILE_JPEG) ? (4 + chn[i].index) : chn[i].index);
 				}
@@ -1759,9 +1761,7 @@ int sample_get_video_stream(int n_clips, int stop)	 // modified
 		}
 		threads_initialized = 1; // Set the flag as threads are initialized 
 	}
-
-	// If stop is requested, stop the existing threads  
-    if (stop && threads_initialized) {  
+    else if (stop && threads_initialized) {  
         for (i = 0; i < FS_CHN_NUM; i++) {  
             if (chn[i].enable) {  
                 threadArgs[i].stop = 1; // Signal the thread to stop  

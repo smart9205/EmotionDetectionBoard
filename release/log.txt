@@ -1,1 +1,0 @@
-IMP_Encoder_StartRecvPic(1) failed

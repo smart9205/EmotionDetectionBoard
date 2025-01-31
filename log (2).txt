@@ -1,0 +1,926 @@
+[root@Zeratul:0723_emo]# ./memV
+framesource init success.
+IMP_Encoder_CreateGroup success.
+rcMode:1.
+sample_encoder_init success.
+IMP_System_Bind success.[  100.556337] soc_nna_open: open sucess
+
+ImpStreamOn success.
+drivers version:0.0.1.0.RELEASE(b4edd3b)[  100.563456] soc-nna version is H20220525
+240304-22.30.37(7.2.0-r5.1.5-libc2.29-1-lib@STANDARD-sys@STANDARD-aie@NNA1)
+The soc-nna version is 20220525
+[I/magik::venus]: venus.cc:71 ***********************
+[I/magik::venus]: venus.cc:72 venus memory map size: 0
+[I/magik::venus]: venus.cc:73 ***********************
+[I/magik::venus]: venus.cc:106 ***********************
+[I/magik::venus]: venus.cc:107 venus init sucess.
+[I/magik::venus]: venus.cc:108 ***********************
+INFO(magik): venus version:1.2.1.0.ALPHA(04010210_00000000_8df640f) built:240308-00.14.06(7.2.0-r5.1.5-libc2.29-mips-lib@STANDARD-sys@STANDARD-aie@NNA1)
+INFO(magik): model version:1.2.1.NNA1_ef8f4d3 
+[  100.647092] TTFF frame_channel_buffer_done:255 Chn:1 Buf:0 Write Done:11369
+[frame_pooling_thread--469 Channel:1 ]:11372(ms)
+INFO(magik): model version:1.2.1.NNA1_ef8f4d3 
+[  100.697061] TTFF frame_channel_buffer_done:255 Chn:1 Buf:1 Write Done:11419
+[  100.747076] TTFF frame_channel_buffer_done:255 Chn:1 Buf:0 Write Done:11469
+[  100.797081] TTFF frame_channel_buffer_done:255 Chn:1 Buf:1 Write Done:11520
+[  100.847090] TTFF frame_channel_buffer_done:255 Chn:1 Buf:0 Write Done:11569
+[  100.897101] TTFF frame_channel_buffer_done:255 Chn:1 Buf:1 Write Done:11620
+[  100.947098] TTFF frame_channel_buffer_done:255 Chn:1 Buf:0 Write Done:11669
+[  100.997084] TTFF frame_channel_buffer_done:255 Chn:1 Buf:1 Write Done:11720
+Emotion: neutral : 0.849783
+[  101.047070] TTFF frame_channel_buffer_done:255 Chn:1 Buf:0 Write Done:11769
+Emotion: neutral : 0.842835
+Emotion: neutral : 0.864325
+Emotion: neutral : 0.877418
+Emotion: neutral : 0.8567
+Emotion: neutral : 0.862222
+Emotion: neutral : 0.858558
+Emotion: neutral : 0.873289
+Emotion: neutral : 0.88376
+Emotion: neutral : 0.864427
+Emotion: neutral : 0.882388
+Emotion: neutral : 0.894158
+Emotion: neutral : 0.887807
+Emotion: neutral : 0.901588
+Emotion: neutral : 0.870747
+Emotion: neutral : 0.896685
+Emotion: neutral : 0.889799
+Emotion: neutral : 0.919183
+Emotion: neutral : 0.925213
+Emotion: neutral : 0.918203
+Emotion: neutral : 0.91561
+Emotion: neutral : 0.920124
+Emotion: neutral : 0.928041
+Emotion: neutral : 0.927867
+Emotion: neutral : 0.920789
+Emotion: neutral : 0.927809
+Emotion: neutral : 0.935297
+Emotion: neutral : 0.933049
+Emotion: neutral : 0.923896
+Emotion: neutral : 0.943871
+Emotion: neutral : 0.927362
+Emotion: neutral : 0.934937
+Emotion: neutral : 0.926225
+Emotion: neutral : 0.933656
+Emotion: neutral : 0.941141
+Emotion: neutral : 0.942663
+Emotion: neutral : 0.938285
+Emotion: neutral : 0.944282
+Emotion: neutral : 0.929848
+Emotion: neutral : 0.942075
+Emotion: neutral : 0.934294
+Emotion: neutral : 0.938364
+Emotion: neutral : 0.958604
+Emotion: neutral : 0.94251
+Emotion: neutral : 0.949107
+Emotion: neutral : 0.927274
+Emotion: neutral : 0.926848
+Emotion: neutral : 0.902894
+Emotion: neutral : 0.901219
+Emotion: neutral : 0.865231
+Emotion: neutral : 0.872663
+Emotion: neutral : 0.911465
+Emotion: neutral : 0.934212
+Emotion: neutral : 0.926117
+Emotion: neutral : 0.939521
+Emotion: neutral : 0.923095
+Emotion: neutral : 0.95088
+Emotion: neutral : 0.95009
+Emotion: neutral : 0.950592
+Emotion: neutral : 0.867919
+Emotion: neutral : 0.917215
+Emotion: neutral : 0.933682
+Emotion: neutral : 0.919558
+Emotion: neutral : 0.87989
+Emotion: neutral : 0.844087
+Emotion: neutral : 0.878454
+Emotion: neutral : 0.859617
+Emotion: neutral : 0.886674
+Emotion: neutral : 0.863909
+Emotion: neutral : 0.867815
+Emotion: neutral : 0.832631
+Emotion: neutral : 0.847397
+Emotion: neutral : 0.847599
+Emotion: neutral : 0.881723
+Emotion: neutral : 0.875621
+Emotion: neutral : 0.8803
+Emotion: neutral : 0.893202
+Emotion: neutral : 0.905161
+Emotion: neutral : 0.900283
+Emotion: neutral : 0.915407
+Emotion: neutral : 0.918844
+Emotion: neutral : 0.921948
+Emotion: neutral : 0.923419
+Emotion: neutral : 0.929589
+Emotion: neutral : 0.929702
+Emotion: neutral : 0.923158
+Emotion: neutral : 0.929969
+Emotion: neutral : 0.928391
+Emotion: neutral : 0.914965
+Emotion: neutral : 0.927098
+Emotion: neutral : 0.936527
+Emotion: neutral : 0.936076
+Emotion: neutral : 0.935864
+Emotion: neutral : 0.921315
+Emotion: neutral : 0.928729
+Emotion: neutral : 0.921337
+Emotion: neutral : 0.924314
+Emotion: neutral : 0.921765
+Emotion: neutral : 0.924682
+Emotion: neutral : 0.924769
+Emotion: neutral : 0.918275
+Emotion: neutral : 0.908787
+Emotion: neutral : 0.908959
+Emotion: neutral : 0.912855
+Emotion: neutral : 0.901377
+Emotion: neutral : 0.891651
+Emotion: neutral : 0.870892
+Emotion: neutral : 0.87692
+Emotion: neutral : 0.87862
+Emotion: neutral : 0.879368
+Emotion: neutral : 0.87416
+Emotion: neutral : 0.869116
+Emotion: neutral : 0.867403
+Emotion: neutral : 0.837825
+Emotion: neutral : 0.833107
+Emotion: neutral : 0.815854
+Emotion: neutral : 0.808631
+Emotion: neutral : 0.824226
+Emotion: neutral : 0.828686
+Emotion: neutral : 0.847223
+Emotion: neutral : 0.856637
+Emotion: neutral : 0.84819
+Emotion: neutral : 0.828399
+Emotion: neutral : 0.835931
+Emotion: neutral : 0.86699
+Emotion: neutral : 0.851766
+Emotion: neutral : 0.834756
+Emotion: neutral : 0.837911
+Emotion: neutral : 0.82408
+Emotion: neutral : 0.787817
+Emotion: neutral : 0.820678
+Emotion: neutral : 0.801833
+Emotion: neutral : 0.827362
+Emotion: neutral : 0.777294
+Emotion: neutral : 0.762121
+Emotion: neutral : 0.788611
+Emotion: neutral : 0.785007
+Emotion: neutral : 0.757172
+Emotion: neutral : 0.759994
+Emotion: neutral : 0.742863
+Emotion: neutral : 0.801002
+Emotion: neutral : 0.770632
+Emotion: neutral : 0.813439
+Emotion: neutral : 0.826445
+Emotion: neutral : 0.742541
+Emotion: neutral : 0.840212
+Emotion: neutral : 0.84527
+Emotion: neutral : 0.853053
+Emotion: neutral : 0.852921
+Emotion: neutral : 0.857219
+Emotion: neutral : 0.847965
+Emotion: neutral : 0.798533
+Emotion: neutral : 0.793704
+Emotion: neutral : 0.762545
+Emotion: neutral : 0.796836
+Emotion: neutral : 0.807941
+Emotion: neutral : 0.798102
+Emotion: neutral : 0.808006
+Emotion: neutral : 0.797171
+Emotion: neutral : 0.783696
+Emotion: neutral : 0.754535
+Emotion: neutral : 0.776231
+Emotion: neutral : 0.75878
+Emotion: neutral : 0.823703
+Emotion: neutral : 0.789586
+Emotion: neutral : 0.867648
+Emotion: neutral : 0.813342
+Emotion: neutral : 0.874737
+Emotion: neutral : 0.861702
+Emotion: neutral : 0.852146
+Emotion: neutral : 0.884617
+Emotion: neutral : 0.881247
+Emotion: neutral : 0.882005
+Emotion: neutral : 0.884588
+Emotion: neutral : 0.862717
+Emotion: neutral : 0.863818
+Emotion: neutral : 0.869201
+Emotion: neutral : 0.886838
+Emotion: neutral : 0.878798
+Emotion: neutral : 0.894326
+Emotion: neutral : 0.898431
+Emotion: neutral : 0.908655
+Emotion: neutral : 0.926212
+Emotion: neutral : 0.920421
+Emotion: neutral : 0.928021
+Emotion: neutral : 0.930708
+Emotion: neutral : 0.929525
+Emotion: neutral : 0.915909
+Emotion: neutral : 0.935261
+Emotion: neutral : 0.93978
+Emotion: neutral : 0.928551
+Emotion: neutral : 0.913996
+Emotion: neutral : 0.900309
+Emotion: neutral : 0.917505
+Emotion: neutral : 0.940346
+Emotion: neutral : 0.948894
+Emotion: neutral : 0.948763
+Emotion: neutral : 0.942751
+Emotion: neutral : 0.942178
+Emotion: neutral : 0.953072
+Emotion: neutral : 0.94466
+Emotion: neutral : 0.89829
+Emotion: neutral : 0.856893
+Emotion: neutral : 0.735249
+Emotion: neutral : 0.633179
+Emotion: neutral : 0.809288
+Emotion: neutral : 0.757418
+Emotion: neutral : 0.818136
+Emotion: neutral : 0.672331
+Emotion: neutral : 0.731997
+Emotion: neutral : 0.666423
+Emotion: neutral : 0.662246
+Emotion: neutral : 0.658241
+Emotion: neutral : 0.785797
+Emotion: neutral : 0.602556
+Emotion: neutral : 0.638026
+Emotion: neutral : 0.610718
+Emotion: neutral : 0.609886
+Emotion: neutral : 0.793181
+Emotion: neutral : 0.813014
+Emotion: neutral : 0.829216
+Emotion: neutral : 0.892732
+Emotion: neutral : 0.822046
+Emotion: neutral : 0.793953
+Emotion: neutral : 0.85497
+Emotion: neutral : 0.768555
+Emotion: neutral : 0.731857
+Emotion: neutral : 0.672048
+Emotion: neutral : 0.728605
+Emotion: neutral : 0.756398
+Emotion: neutral : 0.831785
+Emotion: neutral : 0.819868
+Emotion: neutral : 0.846437
+Emotion: happiness : 0.647886
+Recording started for clip 1
+Stopping recording for clip 1
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-1.h265
+Stream file opened successfully 16
+-------------- stopped recording(1)
+Emotion: neutral : 0.502482
+Emotion: happiness : 0.672542
+Recording started for clip 2
+Stopping recording for clip 2
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-2.h265
+Stream file opened successfully 16
+-------------- stopped recording(2)
+Emotion: happiness : 0.73455
+Recording started for clip 3
+Stopping recording for clip 3
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-3.h265
+Stream file opened successfully 16
+-------------- stopped recording(3)
+Emotion: neutral : 0.684412
+Emotion: neutral : 0.65304
+Emotion: neutral : 0.759451
+Emotion: neutral : 0.50889
+Emotion: neutral : 0.520431
+Emotion: neutral : 0.500932
+Emotion: neutral : 0.632792
+Emotion: neutral : 0.484487
+Emotion: neutral : 0.546908
+Emotion: neutral : 0.674751
+Emotion: neutral : 0.726687
+Emotion: neutral : 0.455522
+Emotion: neutral : 0.669258
+Emotion: happiness : 0.621042
+Recording started for clip 4
+Stopping recording for clip 4
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-4.h265
+Stream file opened successfully 16
+-------------- stopped recording(4)
+Emotion: happiness : 0.625597
+Recording started for clip 5
+Stopping recording for clip 5
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-5.h265
+Stream file opened successfully 16
+-------------- stopped recording(5)
+Emotion: neutral : 0.835659
+Emotion: neutral : 0.632259
+Emotion: neutral : 0.66267
+Emotion: neutral : 0.611885
+Emotion: neutral : 0.605292
+Emotion: neutral : 0.782914
+Emotion: neutral : 0.522777
+Emotion: happiness : 0.48144
+Recording started for clip 6
+Stopping recording for clip 6
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-6.h265
+Stream file opened successfully 16
+-------------- stopped recording(6)
+Emotion: neutral : 0.716803
+Emotion: neutral : 0.751127
+Emotion: neutral : 0.800984
+Emotion: neutral : 0.751878
+Emotion: neutral : 0.665184
+Emotion: neutral : 0.832874
+Emotion: neutral : 0.688199
+Emotion: neutral : 0.736986
+Emotion: neutral : 0.80199
+Emotion: neutral : 0.871657
+Emotion: neutral : 0.897875
+Emotion: neutral : 0.855243
+Emotion: neutral : 0.828731
+Emotion: neutral : 0.861813
+Emotion: neutral : 0.828047
+Emotion: neutral : 0.837843
+Emotion: neutral : 0.836877
+Emotion: neutral : 0.849164
+Emotion: neutral : 0.731426
+Emotion: neutral : 0.618947
+Emotion: neutral : 0.527605
+Emotion: neutral : 0.646548
+Emotion: neutral : 0.487348
+Emotion: neutral : 0.671664
+Emotion: neutral : 0.552113
+Emotion: neutral : 0.652501
+Emotion: neutral : 0.485774
+Emotion: neutral : 0.66117
+Emotion: neutral : 0.679993
+Emotion: neutral : 0.625335
+Emotion: happiness : 0.66275
+Recording started for clip 7
+Stopping recording for clip 7
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-7.h265
+Stream file opened successfully 16
+-------------- stopped recording(7)
+Emotion: happiness : 0.727777
+Recording started for clip 8
+Stopping recording for clip 8
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-8.h265
+Stream file opened successfully 16
+-------------- stopped recording(8)
+Emotion: neutral : 0.717061
+Emotion: neutral : 0.661491
+Emotion: neutral : 0.750354
+Emotion: neutral : 0.661907
+Emotion: neutral : 0.749772
+Emotion: neutral : 0.581479
+Emotion: sadness : 0.461372
+Emotion: neutral : 0.577514
+Emotion: neutral : 0.748444
+Emotion: neutral : 0.657701
+Emotion: neutral : 0.638126
+Emotion: neutral : 0.686005
+Emotion: neutral : 0.689652
+Emotion: neutral : 0.778285
+Emotion: neutral : 0.825024
+Emotion: neutral : 0.828097
+Emotion: neutral : 0.673749
+Emotion: neutral : 0.80057
+Emotion: neutral : 0.797128
+Emotion: neutral : 0.844331
+Emotion: neutral : 0.692751
+Emotion: happiness : 0.478605
+Recording started for clip 9
+Stopping recording for clip 9
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-9.h265
+Stream file opened successfully 16
+-------------- stopped recording(9)
+Emotion: neutral : 0.577547
+Emotion: neutral : 0.602981
+Emotion: neutral : 0.561452
+Emotion: neutral : 0.695343
+Emotion: neutral : 0.706437
+Emotion: neutral : 0.697318
+Emotion: neutral : 0.591884
+Emotion: neutral : 0.679025
+Emotion: neutral : 0.590897
+Emotion: neutral : 0.651897
+Emotion: neutral : 0.649407
+Emotion: neutral : 0.577288
+Emotion: neutral : 0.615024
+Emotion: neutral : 0.695273
+Emotion: neutral : 0.789517
+Emotion: neutral : 0.884947
+Emotion: neutral : 0.786075
+Emotion: neutral : 0.806287
+Emotion: neutral : 0.823863
+Emotion: neutral : 0.515362
+Emotion: neutral : 0.501733
+Emotion: neutral : 0.536012
+Emotion: neutral : 0.494118
+Emotion: neutral : 0.540993
+Emotion: neutral : 0.637336
+Emotion: neutral : 0.732594
+Emotion: neutral : 0.78112
+Emotion: neutral : 0.649495
+Emotion: neutral : 0.796914
+Emotion: neutral : 0.736721
+Emotion: neutral : 0.724863
+Emotion: neutral : 0.706685
+Emotion: neutral : 0.702201
+Emotion: neutral : 0.666421
+Emotion: happiness : 0.607116
+Recording started for clip 10
+Stopping recording for clip 10
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-10.h265
+Stream file opened successfully 16
+-------------- stopped recording(10)
+Emotion: happiness : 0.790802
+Recording started for clip 11
+Stopping recording for clip 11
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-11.h265
+Stream file opened successfully 16
+-------------- stopped recording(11)
+Emotion: happiness : 0.81514
+Recording started for clip 12
+Stopping recording for clip 12
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-12.h265
+Stream file opened successfully 16
+-------------- stopped recording(12)
+Emotion: neutral : 0.610488
+Emotion: neutral : 0.503283
+Emotion: happiness : 0.717807
+Recording started for clip 13
+Stopping recording for clip 13
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-13.h265
+Stream file opened successfully 16
+-------------- stopped recording(13)
+Emotion: neutral : 0.575557
+Emotion: happiness : 0.708565
+Recording started for clip 14
+Stopping recording for clip 14
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-14.h265
+Stream file opened successfully 16
+-------------- stopped recording(14)
+Emotion: happiness : 0.727825
+Recording started for clip 15
+Stopping recording for clip 15
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-15.h265
+Stream file opened successfully 16
+-------------- stopped recording(15)
+Emotion: happiness : 0.735033
+Recording started for clip 16
+Stopping recording for clip 16
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-16.h265
+Stream file opened successfully 16
+-------------- stopped recording(16)
+Emotion: happiness : 0.689994
+Recording started for clip 17
+Stopping recording for clip 17
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-17.h265
+Stream file opened successfully 16
+-------------- stopped recording(17)
+Emotion: happiness : 0.857173
+Recording started for clip 18
+Stopping recording for clip 18
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-18.h265
+Stream file opened successfully 16
+-------------- stopped recording(18)
+Emotion: happiness : 0.786064
+Recording started for clip 19
+Stopping recording for clip 19
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-19.h265
+Stream file opened successfully 16
+-------------- stopped recording(19)
+Emotion: happiness : 0.740068
+Recording started for clip 20
+Stopping recording for clip 20
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-20.h265
+Stream file opened successfully 16
+-------------- stopped recording(20)
+Emotion: happiness : 0.799786
+Recording started for clip 21
+Stopping recording for clip 21
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-21.h265
+Stream file opened successfully 16
+-------------- stopped recording(21)
+Emotion: happiness : 0.771745
+Recording started for clip 22
+Stopping recording for clip 22
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-22.h265
+Stream file opened successfully 16
+-------------- stopped recording(22)
+Emotion: happiness : 0.791257
+Recording started for clip 23
+Stopping recording for clip 23
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-23.h265
+Stream file opened successfully 16
+-------------- stopped recording(23)
+Emotion: happiness : 0.772897
+Recording started for clip 24
+Stopping recording for clip 24
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-24.h265
+Stream file opened successfully 16
+-------------- stopped recording(24)
+Emotion: happiness : 0.846862
+Recording started for clip 25
+Stopping recording for clip 25
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-25.h265
+Stream file opened successfully 16
+-------------- stopped recording(25)
+Emotion: happiness : 0.823554
+Recording started for clip 26
+Stopping recording for clip 26
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-26.h265
+Stream file opened successfully 16
+-------------- stopped recording(26)
+Emotion: happiness : 0.829873
+Recording started for clip 27
+Stopping recording for clip 27
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-27.h265
+Stream file opened successfully 16
+-------------- stopped recording(27)
+Emotion: happiness : 0.773001
+Recording started for clip 28
+Stopping recording for clip 28
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-28.h265
+Stream file opened successfully 16
+-------------- stopped recording(28)
+Emotion: happiness : 0.78061
+Recording started for clip 29
+Stopping recording for clip 29
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-29.h265
+Stream file opened successfully 16
+-------------- stopped recording(29)
+Emotion: happiness : 0.700305
+Recording started for clip 30
+Stopping recording for clip 30
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-30.h265
+Stream file opened successfully 16
+-------------- stopped recording(30)
+Emotion: happiness : 0.466036
+Recording started for clip 31
+Stopping recording for clip 31
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-31.h265
+Stream file opened successfully 16
+-------------- stopped recording(31)
+Emotion: happiness : 0.679359
+Recording started for clip 32
+Stopping recording for clip 32
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-32.h265
+Stream file opened successfully 16
+-------------- stopped recording(32)
+Emotion: neutral : 0.467136
+Emotion: happiness : 0.664403
+Recording started for clip 33
+Stopping recording for clip 33
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-33.h265
+Stream file opened successfully 16
+-------------- stopped recording(33)
+Emotion: neutral : 0.445716
+Emotion: neutral : 0.664315
+Emotion: neutral : 0.68018
+Emotion: neutral : 0.746807
+Emotion: neutral : 0.753287
+Emotion: neutral : 0.66983
+Emotion: neutral : 0.71884
+Emotion: neutral : 0.712827
+Emotion: neutral : 0.695069
+Emotion: neutral : 0.686649
+Emotion: neutral : 0.736951
+Emotion: neutral : 0.628621
+Emotion: neutral : 0.622645
+Emotion: happiness : 0.506064
+Recording started for clip 34
+Stopping recording for clip 34
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-34.h265
+Stream file opened successfully 16
+-------------- stopped recording(34)
+Emotion: neutral : 0.522883
+Emotion: happiness : 0.606595
+Recording started for clip 35
+Stopping recording for clip 35
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-35.h265
+Stream file opened successfully 16
+-------------- stopped recording(35)
+Emotion: neutral : 0.458422
+Emotion: happiness : 0.692617
+Recording started for clip 36
+Stopping recording for clip 36
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-36.h265
+Stream file opened successfully 16
+-------------- stopped recording(36)
+Emotion: happiness : 0.726007
+Recording started for clip 37
+Stopping recording for clip 37
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-37.h265
+Stream file opened successfully 16
+-------------- stopped recording(37)
+Emotion: happiness : 0.761547
+Recording started for clip 38
+Stopping recording for clip 38
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-38.h265
+Stream file opened successfully 16
+-------------- stopped recording(38)
+Emotion: happiness : 0.801449
+Recording started for clip 39
+Stopping recording for clip 39
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-39.h265
+Stream file opened successfully 16
+-------------- stopped recording(39)
+Emotion: happiness : 0.834008
+Recording started for clip 40
+Stopping recording for clip 40
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-40.h265
+Stream file opened successfully 16
+-------------- stopped recording(40)
+Emotion: happiness : 0.816413
+Recording started for clip 41
+Stopping recording for clip 41
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-41.h265
+Stream file opened successfully 16
+-------------- stopped recording(41)
+Emotion: happiness : 0.676458
+Recording started for clip 42
+Stopping recording for clip 42
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-42.h265
+Stream file opened successfully 16
+-------------- stopped recording(42)
+Emotion: happiness : 0.542183
+Recording started for clip 43
+Stopping recording for clip 43
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-43.h265
+Stream file opened successfully 16
+-------------- stopped recording(43)
+Emotion: neutral : 0.482566
+Emotion: neutral : 0.679276
+Emotion: happiness : 0.537509
+Recording started for clip 44
+Stopping recording for clip 44
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-44.h265
+Stream file opened successfully 16
+-------------- stopped recording(44)
+Emotion: neutral : 0.676559
+Emotion: neutral : 0.605795
+Emotion: neutral : 0.778622
+Emotion: neutral : 0.638278
+Emotion: neutral : 0.666586
+Emotion: neutral : 0.784841
+Emotion: neutral : 0.784655
+Emotion: neutral : 0.808834
+Emotion: neutral : 0.84632
+Emotion: neutral : 0.801878
+Emotion: neutral : 0.789075
+Emotion: neutral : 0.709661
+Emotion: neutral : 0.634224
+Emotion: neutral : 0.655909
+Emotion: neutral : 0.6719
+Emotion: neutral : 0.680173
+Emotion: neutral : 0.892492
+Emotion: neutral : 0.773926
+Emotion: neutral : 0.857189
+Emotion: neutral : 0.837786
+Emotion: neutral : 0.831292
+Emotion: neutral : 0.804371
+Emotion: neutral : 0.62686
+Emotion: neutral : 0.519704
+Emotion: neutral : 0.548152
+Emotion: neutral : 0.406644
+Emotion: neutral : 0.405905
+Emotion: neutral : 0.742205
+Emotion: neutral : 0.822915
+Emotion: neutral : 0.808983
+Emotion: neutral : 0.454688
+Emotion: neutral : 0.563471
+Emotion: neutral : 0.758639
+Emotion: neutral : 0.816875
+Emotion: neutral : 0.775576
+Emotion: neutral : 0.671108
+Emotion: neutral : 0.863235
+Emotion: neutral : 0.680798
+Emotion: neutral : 0.754342
+Emotion: neutral : 0.673849
+Emotion: neutral : 0.681605
+Emotion: neutral : 0.504223
+Emotion: happiness : 0.703355
+Recording started for clip 45
+Stopping recording for clip 45
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-45.h265
+Stream file opened successfully 16
+-------------- stopped recording(45)
+Emotion: happiness : 0.603599
+Recording started for clip 46
+Stopping recording for clip 46
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-46.h265
+Stream file opened successfully 16
+-------------- stopped recording(46)
+Emotion: happiness : 0.533055
+Recording started for clip 47
+Stopping recording for clip 47
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-47.h265
+Stream file opened successfully 16
+-------------- stopped recording(47)
+Emotion: neutral : 0.618397
+Emotion: neutral : 0.690455
+Emotion: neutral : 0.718607
+Emotion: neutral : 0.474588
+Emotion: happiness : 0.496615
+Recording started for clip 48
+Stopping recording for clip 48
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-48.h265
+Stream file opened successfully 16
+-------------- stopped recording(48)
+Emotion: neutral : 0.569642
+Emotion: neutral : 0.618274
+Emotion: neutral : 0.580118
+Emotion: neutral : 0.743109
+Emotion: neutral : 0.516357
+Emotion: neutral : 0.732086
+Emotion: neutral : 0.542791
+Emotion: neutral : 0.397314
+Emotion: neutral : 0.607592
+Emotion: happiness : 0.715835
+Recording started for clip 49
+Stopping recording for clip 49
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-49.h265
+Stream file opened successfully 16
+-------------- stopped recording(49)
+Emotion: happiness : 0.480853
+Recording started for clip 50
+Stopping recording for clip 50
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-50.h265
+Stream file opened successfully 16
+-------------- stopped recording(50)
+Emotion: happiness : 0.558252
+Recording started for clip 51
+Stopping recording for clip 51
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-51.h265
+Stream file opened successfully 16
+-------------- stopped recording(51)
+Emotion: happiness : 0.591061
+Recording started for clip 52
+Stopping recording for clip 52
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-52.h265
+Stream file opened successfully 16
+-------------- stopped recording(52)
+Emotion: happiness : 0.604715
+Recording started for clip 53
+Stopping recording for clip 53
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-53.h265
+Stream file opened successfully 16
+-------------- stopped recording(53)
+Emotion: happiness : 0.513696
+Recording started for clip 54
+Stopping recording for clip 54
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-54.h265
+Stream file opened successfully 16
+-------------- stopped recording(54)
+Emotion: neutral : 0.436822
+Emotion: happiness : 0.531316
+Recording started for clip 55
+Stopping recording for clip 55
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-55.h265
+Stream file opened successfully 16
+-------------- stopped recording(55)
+Emotion: happiness : 0.626501
+Recording started for clip 56
+Stopping recording for clip 56
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-56.h265
+Stream file opened successfully 16
+-------------- stopped recording(56)
+Emotion: happiness : 0.521687
+Recording started for clip 57
+Stopping recording for clip 57
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-57.h265
+Stream file opened successfully 16
+-------------- stopped recording(57)
+Emotion: happiness : 0.68922
+Recording started for clip 58
+Stopping recording for clip 58
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-58.h265
+Stream file opened successfully 16
+-------------- stopped recording(58)
+Emotion: happiness : 0.681498
+Recording started for clip 59
+Stopping recording for clip 59
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-59.h265
+Stream file opened successfully 16
+-------------- stopped recording(59)
+Emotion: happiness : 0.689383
+Recording started for clip 60
+Stopping recording for clip 60
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-60.h265
+Stream file opened successfully 16
+-------------- stopped recording(60)
+Emotion: happiness : 0.54623
+Recording started for clip 61
+Stopping recording for clip 61
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-61.h265
+Stream file opened successfully 16
+-------------- stopped recording(61)
+Emotion: happiness : 0.81522
+Recording started for clip 62
+Stopping recording for clip 62
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-62.h265
+Stream file opened successfully 16
+-------------- stopped recording(62)
+Emotion: happiness : 0.876487
+Recording started for clip 63
+Stopping recording for clip 63
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-63.h265
+Stream file opened successfully 16
+-------------- stopped recording(63)
+Emotion: happiness : 0.807982
+Recording started for clip 64
+Stopping recording for clip 64
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-64.h265
+Stream file opened successfully 16
+-------------- stopped recording(64)
+Emotion: happiness : 0.775757
+Recording started for clip 65
+Stopping recording for clip 65
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-65.h265
+Stream file opened successfully 16
+-------------- stopped recording(65)
+Emotion: happiness : 0.428871
+Recording started for clip 66
+Stopping recording for clip 66
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-66.h265
+Stream file opened successfully 16
+-------------- stopped recording(66)
+Emotion: happiness : 0.676003
+Recording started for clip 67
+Stopping recording for clip 67
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-67.h265
+Stream file opened successfully 16
+-------------- stopped recording(67)
+Emotion: happiness : 0.562799
+Recording started for clip 68
+Stopping recording for clip 68
+IMP_Encoder_StartRecvPic------ 0
+Video ChnNum=1 Open Stream file /tmp/mnt/sdcard/Recording/stream-68.h265
+Stream file opened successfully 16
+-------------- stopped recording(68)
+Emotion: neutral : 0.672246
+Emotion: neutral : 0.776086
+Emotion: neutral : 0.738342
+Emotion: neutral : 0.745801

@@ -155,11 +155,18 @@ vector<vector<float>> generate_priors(const vector<vector<int>>& feature_map_lis
     }
     // cout << "priors nums:" << priors.size() << endl;
     // Clipping the priors to be within [0.0, 1.0]
-    for (auto& prior : priors) {  
-        for (auto& val : prior) {  
-            val = std::min(std::max(val, 0.0f), 1.0f);  
-        }  
-    }  
+    // for (auto& prior : priors) {  
+    //     for (auto& val : prior) {  
+    //         val = std::min(std::max(val, 0.0f), 1.0f);  
+    //     }  
+    // } 
+    for(int i = 0; i < priors.size(); i++){
+		for(int j = 0; j < priors[i].size(); j++){
+			float val = priors[i][j];
+			float value_b =  std::min(std::max(val, 0.0f), 1.0f);
+			priors[i][j] = value_b;
+		}
+	}  
 
     return priors;
 }
@@ -312,6 +319,15 @@ void softmax(const float* input, float* output, int w, int h, int c) {
     int softmax_size = w * h;
     float* softmax_data = (float*)malloc(softmax_size * sizeof(float));
     float* max = (float*)malloc(softmax_size * sizeof(float));
+
+    if (softmax_data == NULL || max == NULL) {  
+        // Handle memory allocation failure  
+        if (softmax_data) free(softmax_data);  
+        if (max) free(max);  
+        return;  
+
+    }
+
     for (int f = 0; f < first; ++f) {
         for (int t = 0; t < third; ++t) {
             int m_under = f * third + t;
@@ -334,6 +350,9 @@ void softmax(const float* input, float* output, int w, int h, int c) {
             }
         }
     }
+    // Free the allocated memory  
+    free(softmax_data);  
+    free(max);
 }
 
 int Goto_Magik_Detect(char * nv12Data, int width, int height){
@@ -371,13 +390,14 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
     // get ori image w h
     ori_img_w = input_src.w;
     ori_img_h = input_src.h;
-    // printf("ori_image w,h: %d ,%d \n",ori_img_w,ori_img_h);
 
+    // printf("ori_image w,h: %d ,%d \n",ori_img_w,ori_img_h);
     // unsigned char *imagedata = stbi_load(argv[3], &ori_img_w, &ori_img_h, &comp, 3); // RGB
     
     input = face_net->get_input(0);
     magik::venus::shape_t input_shape = input->shape();
     // printf("face model-->%d %d %d \n",input_shape[1], input_shape[2], input_shape[3]);
+
     if (cvtbgra)
     {
         input->reshape({1, face_in_h, face_in_w , 4});
@@ -387,7 +407,7 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
     }
   
 
-    uint8_t *indata = input->mudata<uint8_t>();
+    // uint8_t *indata = input->mudata<uint8_t>();
     
     //resize and padding
     magik::venus::Tensor temp_ori_input({1, ori_img_h, ori_img_w, 1}, TensorFormat::NV12);
@@ -395,25 +415,25 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
     int src_size = int(ori_img_h * ori_img_w * 1.5);
     magik::venus::memcopy((void*)tensor_data, (void*)input_src.image, src_size * sizeof(uint8_t));
 
-    float scale_x = (float)face_in_w/(float)ori_img_w;
-    float scale_y = (float)face_in_h/(float)ori_img_h;
-    scale = scale_x < scale_y ? scale_x:scale_y;  //min scale
+    // float scale_x = (float)face_in_w/(float)ori_img_w;
+    // float scale_y = (float)face_in_h/(float)ori_img_h;
+    // scale = scale_x < scale_y ? scale_x:scale_y;  //min scale
     // printf("scale---> %f\n",scale);
 
-    int valid_dst_w = (int)(scale*ori_img_w);
-    if (valid_dst_w % 2 == 1)
-        valid_dst_w = valid_dst_w + 1;
-    int valid_dst_h = (int)(scale*ori_img_h);
-    if (valid_dst_h % 2 == 1)
-        valid_dst_h = valid_dst_h + 1;
+    // int valid_dst_w = (int)(scale*ori_img_w);
+    // if (valid_dst_w % 2 == 1)
+    //     valid_dst_w = valid_dst_w + 1;
+    // int valid_dst_h = (int)(scale*ori_img_h);
+    // if (valid_dst_h % 2 == 1)
+    //     valid_dst_h = valid_dst_h + 1;
 
-    int dw = face_in_w - valid_dst_w;
-    int dh = face_in_h - valid_dst_h;
+    // int dw = face_in_w - valid_dst_w;
+    // int dh = face_in_h - valid_dst_h;
 
-    pixel_offset.top = int(round(float(dh)/2 - 0.1));
-    pixel_offset.bottom = int(round(float(dh)/2 + 0.1));
-    pixel_offset.left = int(round(float(dw)/2 - 0.1));
-    pixel_offset.right = int(round(float(dw)/2 + 0.1));
+    // pixel_offset.top = int(round(float(dh)/2 - 0.1));
+    // pixel_offset.bottom = int(round(float(dh)/2 + 0.1));
+    // pixel_offset.left = int(round(float(dw)/2 - 0.1));
+    // pixel_offset.right = int(round(float(dw)/2 + 0.1));
     
 //    check_pixel_offset(pixel_offset);
 
@@ -479,6 +499,7 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
         }
         boxes.push_back(box);
     }
+    free(output_data_0_softmax);
 
     vector<int> input_size = {320, 240};
     float center_variance = 0.1;
@@ -501,6 +522,9 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
         magik::venus::shape_t emo_input_shape = emo_input->shape();
         // printf("emotion detection model-->%d %d %d \n",emo_input_shape[1], emo_input_shape[2], emo_input_shape[3]);
     }
+    else{
+        return 3;
+    }
 
 //######################################################################
 
@@ -516,12 +540,10 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
         roi_y = std::max(roi_y, 0);  
     
         // Adjust width and height to be within the image bounds  
-        if (roi_x + roi_w > ori_img_w) {  
-            roi_w = ori_img_w - roi_x;  
-        }  
-        if (roi_y + roi_h > ori_img_h) {  
-            roi_h = ori_img_h - roi_y;  
-        }  
+        roi_w = std::min(roi_w, ori_img_w - roi_x);  
+        roi_h = std::min(roi_h, ori_img_h - roi_y);  
+        if (roi_w % 2 == 1) roi_w += 1;  
+        if (roi_h % 2 == 1) roi_h += 1;  
     
         // Check if the adjusted ROI is still valid  
         if (roi_w <= 0 || roi_h <= 0) {  
@@ -597,24 +619,15 @@ int Goto_Magik_Detect(char * nv12Data, int width, int height){
         int predicted_class = std::distance(log_softmax_output.begin(), std::max_element(log_softmax_output.begin(), log_softmax_output.end()));  
         float confidence = std::exp(log_softmax_output[predicted_class]); // Convert log probability back to probability  
     
-        // std::cout << "Detected emotion: " << emotion_array[predicted_class] << " with confidence: " << confidence << std::endl;
-        std::cout << emotion_array[predicted_class] << ": " << confidence << std::endl;
-
+        std::cout << "Emotion: " << emotion_array[predicted_class] << " : " << confidence << std::endl;
         delete[] grayscaleData;  
         delete[] resizedData;
+
         if (predicted_class == 1)
             return 1;
         else
             return 2;
-    }
-//######################################################################
 
-    
-
-    ret = venus::venus_deinit();
-    if (0 != ret) {
-        fprintf(stderr, "venus deinit failed.\n");
-        return -1;
     }
     return 0;
 }
